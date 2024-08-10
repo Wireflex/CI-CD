@@ -1,1 +1,1 @@
-![TeamCity_Icon](https://github.com/user-attachments/assets/b4ad9604-79df-4651-a92b-8d14bdf0ebe2)
+![image](https://github.com/user-attachments/assets/0120b1e0-c810-440a-b8e5-9b0f2be8229b)
