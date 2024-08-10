@@ -1,1 +1,1 @@
-![image](https://github.com/Wireflex/Jenkins/assets/165675775/951ee1c2-ce6a-4a8e-a3d2-4d105dad30fd)
+![image](https://github.com/user-attachments/assets/7bc871f8-5125-4b71-a254-1d0ee950a234)
