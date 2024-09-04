@@ -50,4 +50,4 @@
 
 ## [GitHub Actions ](https://github.com/Wireflex/CI-CD/tree/3469a629e1b08a9f3952418724388a901a49a2fb/GitHubActions)
 
-[![Practice_actions](https://github.com/Wireflex/CI-CD/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/Wireflex/CI-CD/actions/workflows/main.yml)
+[![Practice_actions](https://github.com/Wireflex/CI-CD/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/Wireflex/CI-CD/tree/704827363c45f2fd46b6450152110e679f8ca004/GitHubActions)
