@@ -96,8 +96,13 @@ self-host runner устанавливается тут
 
 ![image](https://github.com/user-attachments/assets/163561f2-6ce3-4496-94ac-3fec8004a53e)
 
-```./run.sh``` для запуска
+```./run.sh``` для обычного запуска 
 
+для запуска в качестве службы (на фоне)
+```
+sudo ./svc.sh install
+sudo ./svc.sh start
+```
 <details> <summary>FINAL-VERSION</summary>
 
 ```
