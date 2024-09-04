@@ -46,6 +46,8 @@
 
 ## [GitLab CI](https://github.com/Wireflex/CI-CD/tree/3469a629e1b08a9f3952418724388a901a49a2fb/GitLab)
 
+## [TeamCity](https://github.com/Wireflex/CI-CD/tree/3469a629e1b08a9f3952418724388a901a49a2fb/TeamCity)
+
 ## [GitHub Actions ](https://github.com/Wireflex/CI-CD/tree/3469a629e1b08a9f3952418724388a901a49a2fb/GitHubActions)
 
-## [TeamCity](https://github.com/Wireflex/CI-CD/tree/3469a629e1b08a9f3952418724388a901a49a2fb/TeamCity)
+[![Practice_actions](https://github.com/Wireflex/CI-CD/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/Wireflex/CI-CD/actions/workflows/main.yml)
