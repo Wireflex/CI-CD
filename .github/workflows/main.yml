@@ -49,13 +49,9 @@ jobs:
         echo "Var3 = $LOCAL_VAR"
       env:
         LOCAL_VAR: "This is Superr local Environment variable"
-
     
     - name: Printing Deployment package
       run : echo "Deplyo pakcage name is ${{ env.DEPLOY_PACKAGE_NAME }}"
-
-    - name: Lets test some packages if they are here 2
-      run : zip --version
       
     - name: List current folder
       run : ls -la
