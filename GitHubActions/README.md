@@ -165,3 +165,8 @@ jobs:
       run : ls -la
 ```
 </details>
+
+Secrets тут:
+
+![image](https://github.com/user-attachments/assets/a65f13f2-7f9d-4a18-ad59-00241e19d3f6)
+
