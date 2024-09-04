@@ -32,7 +32,7 @@ jobs:
       run : ls -la
   
   my_deploy:
-    runs-on: self-host
+    runs-on: self-hosted
     needs: [my_testing]
     env:
       VAR1 : "This is Job Level Variable1"
