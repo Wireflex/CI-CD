@@ -32,8 +32,8 @@ task for my_testing
 ...
 
   my_deploy:
-    runs-on: self-host   # а этот на своём раннере(нужно его прикрутить сначала)
-    needs: [my_testing]  # запустится после my_testing (по дефолту они одновременно бегут, и деплой может выполнится раньше теста)
+    runs-on: self-host  # а этот на своём раннере(нужно его прикрутить сначала)
+    needs: [my_testing] # запустится после my_testing(по дефолту они одновременно бегут,и деплой может выполнится раньше теста)
     env:           # переменные только для my_deploy
       VAR1 : "This is Job Level Variable1"
       VAR2 : "This is Job Level Variable2"
