@@ -32,7 +32,7 @@ sudo gitlab-runner start
 
 регистрируем по инструкции и ```gitlab-runner run```
 
-но удобнее через докер
+либо через докер
 ```
 docker volume create gitlab-runner-config
 
