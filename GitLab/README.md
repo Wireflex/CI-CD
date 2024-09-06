@@ -61,7 +61,7 @@ first_stage:
     artifacts:
         paths:
             - Dota/
-    allow_failure: true
+    allow_failure: true  # продолжит выполнять другие stages, даже если этот зафейлится
 
 testing:
     stage: test
@@ -73,6 +73,14 @@ deploying:
     stage: deploy
     script:
         - 
-    when: manual
+    when: manual  # Continuous Delivery, запустить пайплайн можно только вручную
 ```
 сохраненный артефакт ![image](https://github.com/user-attachments/assets/1f87b7da-dc3d-4f8c-baa3-788e374b620b)
+
+Свои билды можно хранить в гитлабе в Проект - Deploy - Container registry
+```
+docker login registry.gitlab.com
+docker build -t registry.gitlab.com/wireflex/dota .
+docker push registry.gitlab.com/wireflex/dota
+```
+![image](https://github.com/user-attachments/assets/8bac9d2f-49b8-407c-b991-b218f79ea41e)
