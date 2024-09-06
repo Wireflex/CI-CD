@@ -32,6 +32,16 @@ sudo gitlab-runner start
 
 регистрируем по инструкции и ```gitlab-runner run```
 
+но удобнее через докер
+```
+docker volume create gitlab-runner-config
+
+docker run -d --name gitlab-runner --restart always \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v gitlab-runner-config:/etc/gitlab-runner \
+    gitlab/gitlab-runner:latest
+```
+
 Все джобы побегут от пользователя gitlab-runner, и если нужно выполнить судо-команды, то в visudo нужно дать ему рут-права и убрать пароль ![image](https://github.com/user-attachments/assets/effbe15a-4207-4232-9aa2-18d53a8306fa)
 
 Глобальные переменные и секреты в Проект - Setting - CI/CD - Variables
