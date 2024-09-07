@@ -37,7 +37,7 @@ volumes:
 и еще столько же на [сайте](https://plugins.jenkins.io/), тут можно выбрать конкретную версию плагина( если нужна не latest) и загрузить на сервер через ![image](https://github.com/user-attachments/assets/71a7769f-4924-424e-b080-222730701027)
 
 
-# Pipeline
+# Simple jobs
 
 ## Freestyle project
 создать Item - Freestyle project - Шаги сборки - Shell-script - ```echo "Hello Dota!"```
