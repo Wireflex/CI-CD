@@ -36,9 +36,8 @@ volumes:
 
 и еще столько же на [сайте](https://plugins.jenkins.io/), тут можно выбрать конкретную версию плагина( если нужна не latest) и загрузить на сервер через ![image](https://github.com/user-attachments/assets/71a7769f-4924-424e-b080-222730701027)
 
-
 # Simple jobs
-
+по дефолту все джобы бегут от Jenkins-пользователя, домашняя директория ```/var/lib/jenkins```, поэтому сразу даём рут права и убираем пароль в visudo ```jenkins ALL=(ALL) NOPASSWD: ALL```
 ## Freestyle project
 создать Item - Freestyle project - Шаги сборки - Shell-script - ```echo "Hello Dota!"```
 
@@ -90,7 +89,27 @@ ssh-agent сохраняет ssh-key и username в credentials, а ssh-slaves �
 
 ![image](https://github.com/user-attachments/assets/5916c449-0553-4bad-8b19-e2ddb8fab435)
 
+можно по красоте создавать везде пользователя jenkins и от него выполнять джобы
+```
+sudo useradd -m -s /bin/bash jenkins # создаём дженкинс-юзера
+sudo usermod -aG sudo jenkins        # добавляем его в группу судо
+sudo passwd -d jenkins               # нафиг пароль
+su - jenkins                         # от него уже генерируем ключи
+
+# тип рекомендация, хотя некоторые нужны( опенссх точно )
+sudo apt-get update
+sudo apt install apt-transport-https
+sudo apt-get install openssh-server
+sudo apt install ssh
+sudo apt install default-jre
+sudo apt-get install fontconfig openjdk-17-jre
+```
+
+---
+
 ![image](https://github.com/user-attachments/assets/ad92a659-e4f1-4919-813c-0414b3c5e711)
+
+---
 
 # GitOps
 
@@ -123,4 +142,20 @@ http://localhost:8080/job/first_job/build?token=dota2
 
 - GitHub hook trigger for GITScm polling. Основной триггер с плагина,  
 
+![image](https://github.com/user-attachments/assets/aec099ab-5793-4653-a0f9-70300d9b129d)
 
+![image](https://github.com/user-attachments/assets/3dc0151d-1d03-40f3-8848-13edf70e7fb8)
+
+![image](https://github.com/user-attachments/assets/f2104304-7e8e-4e20-bfa5-a583a0310fe3)
+
+Добавляем webhook на гитхабе
+
+![image](https://github.com/user-attachments/assets/37850fcb-71c9-43cb-b503-4cd7e14f787d)
+
+и теперь при каждом коммите будет запускаться сборка
+
+![image](https://github.com/user-attachments/assets/6e7e5df8-9b53-47a1-9425-e4202aec7fa9)
+
+![image](https://github.com/user-attachments/assets/61386f07-9c02-4d62-8423-0344802fa0d7)
+
+![image](https://github.com/user-attachments/assets/d9b74329-c241-4c0c-b7df-52907810f8e4)
