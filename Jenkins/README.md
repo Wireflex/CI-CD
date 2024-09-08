@@ -1,6 +1,6 @@
 ![image](https://github.com/user-attachments/assets/7bc871f8-5125-4b71-a254-1d0ee950a234)
 
-### [Установка](https://www.jenkins.io/download/)
+## [Установка](https://www.jenkins.io/download/)
 
 <details> <summary>docker-compose.yml</summary>
 
@@ -28,7 +28,7 @@ volumes:
 
 в Докере же просто поменять имедж
 
-## Plugins
+# Plugins
 
 расширяют функционональные возможности Jenkins.
 
@@ -45,7 +45,7 @@ volumes:
 
 ![image](https://github.com/user-attachments/assets/717062ef-c98e-451b-b0e3-038663420a79)
 
-### Publish over ssh
+## Publish over ssh
 ставим этот плагин
 
 в настройках дженкинса в System в самом низу в поле Key вставляем приватный ключ jenkins-сервера, задаём параметры 
@@ -73,7 +73,7 @@ EOF
 
 ![image](https://github.com/user-attachments/assets/eb3b5308-4ee9-434d-9fc2-71674a759728)
 
-## Jenkins slaves/nodes
+# Jenkins slaves/nodes
 ssh-agent сохраняет ssh-key и username в credentials, а ssh-slaves добавляет agents через ssh
 
 на слейвах должна быть установлена java
@@ -159,3 +159,20 @@ http://localhost:8080/job/first_job/build?token=dota2
 ![image](https://github.com/user-attachments/assets/61386f07-9c02-4d62-8423-0344802fa0d7)
 
 ![image](https://github.com/user-attachments/assets/d9b74329-c241-4c0c-b7df-52907810f8e4)
+
+# Pipeline
+
+## Pipeline script
+и строчим в самом дженкинсе
+
+![image](https://github.com/user-attachments/assets/25bcc068-0ae8-443b-8545-88086c7dc1ea)
+
+![image](https://github.com/user-attachments/assets/e22d6179-4020-4852-8c3a-c5f6057d3ac2)
+
+## Pipeline from SCM
+уже указываем Jenkinsfile в SCM (github)
+
+![image](https://github.com/user-attachments/assets/434923aa-a337-4d2c-967d-3509e34cf4f7)
+
+ну и сам [Jenkinsfile](https://github.com/Wireflex/CI-CD/blob/f243e053f879706595521fe00248a566738dc725/Jenkins/Nginx_html/Jenkinsfile),
+[Dockerfile](https://github.com/Wireflex/CI-CD/blob/48cb5f9360dc0011778572baaa29efaae5e087b8/Jenkins/Nginx_html/Dockerfile) и [index.html](https://github.com/Wireflex/CI-CD/blob/ce83955d5e30e6c4e450ef2254b892261ef3484e/Jenkins/Nginx_html/index.html)
