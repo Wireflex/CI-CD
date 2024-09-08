@@ -176,3 +176,106 @@ http://localhost:8080/job/first_job/build?token=dota2
 
 ну и сам [Jenkinsfile](https://github.com/Wireflex/CI-CD/blob/7fe33e2417a9eaf23fae4723802bc12d4a664869/Jenkins/Nginx_html/Jenkinsfile),
 [Dockerfile](https://github.com/Wireflex/CI-CD/blob/48cb5f9360dc0011778572baaa29efaae5e087b8/Jenkins/Nginx_html/Dockerfile) и [index.html](https://github.com/Wireflex/CI-CD/blob/ce83955d5e30e6c4e450ef2254b892261ef3484e/Jenkins/Nginx_html/index.html)
+
+## Autocreate PODS (with Kuber)
+ПОДЫ будут подниматься автоматически, чтоб выполнить пайп
+
+<details> <summary>jenkins.yml</summary>
+
+```
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: jenkins
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: jenkins-sa
+  namespace: jenkins
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: jenkins
+  name: jenkins-role
+rules:
+  - apiGroups: ["*"] # "" indicates the core API group
+    resources: ["*"]
+    verbs: ["*"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: jenkins-rolebinding
+  namespace: jenkins
+subjects:
+  - kind: ServiceAccount
+    name: jenkins-sa
+    namespace: jenkins
+roleRef:
+  kind: Role
+  name: jenkins-role
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: v1
+kind: Secret
+type: kubernetes.io/service-account-token
+metadata:
+  name: jenkins-token
+  namespace: jenkins
+  annotations:
+    kubernetes.io/service-account.name: "jenkins-sa"
+    namespace: jenkins
+```
+</details>
+
+Конфигурируем Clouds в дженкинсе -Kubernetes URL берём из ```kubectl cluster-info``` - Kubernetes server certificate key зырим в секрете в KuberDashboard(ns 'jenkins') - добавляем Credentials ( Secret Text, сам секрет это токен из того же секрета на ДашбордеКубера ) - Pod Label ( jenkins - slave ) и настраиваем Pod Templates
+
+![image](https://github.com/user-attachments/assets/07dff98f-f5dc-43d9-9c0a-410402ac7166)
+
+либо создать ПОДЫ декларативно, можно позырить [тут](https://plugins.jenkins.io/kubernetes/) примеры
+
+<details> <summary>Declarative Pipeline</summary>
+
+```
+pipeline {
+  agent {
+    kubernetes {
+      yaml '''
+        apiVersion: v1
+        kind: Pod
+        metadata:
+          labels:
+            some-label: some-label-value
+        spec:
+          containers:
+          - name: maven
+            image: maven:alpine
+            command:
+            - cat
+            tty: true
+          - name: busybox
+            image: busybox
+            command:
+            - cat
+            tty: true
+        '''
+      retries 2
+    }
+  }
+  stages {
+    stage('Run maven') {
+      steps {
+        container('maven') {
+          sh 'mvn -version'
+        }
+        container('busybox') {
+          sh '/bin/busybox'
+        }
+      }
+    }
+  }
+}
+```
+</details>
