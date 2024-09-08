@@ -52,7 +52,7 @@ pipeline {
         stage('Create compose and transfer') {
             steps {
                 sh '''
-                cat << 'EOF' > docker-compose.yml
+                cat << 'EOF' > docker-compose-jenkins.yml
 services:
   test:
     image: wireflex/jenkins
@@ -61,14 +61,14 @@ services:
     restart: unless-stopped
 #EOF
             '''
-                sh 'scp docker-compose.yml ubuntu@3.127.221.103:/home/ubuntu'
+                sh 'scp docker-compose-jenkins.yml ubuntu@3.127.221.103:/home/ubuntu'
             }
         }
         stage('Deploy on remote') {
             steps {
-                sh "ssh ubuntu@3.127.221.103 'cd ~ && docker compose down'"
+                sh "ssh ubuntu@3.127.221.103 'cd ~ && docker compose -f docker-compose-jenkins.yml down'"
                 sh "ssh ubuntu@3.127.221.103 'cd ~ && docker rmi -f wireflex/jenkins || true'"
-                sh "ssh ubuntu@3.127.221.103 'cd ~ && docker compose up -d'"
+                sh "ssh ubuntu@3.127.221.103 'cd ~ && docker compose -f docker-compose-jenkins.yml up -d'"
             }
         }
     }
