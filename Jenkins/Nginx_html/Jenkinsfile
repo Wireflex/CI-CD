@@ -8,7 +8,7 @@ pipeline {
             steps {
                 sh "echo $USER"
                 sh 'docker version'
-                sh "ssh ubuntu@3.127.221.103 'echo $USER'"
+                sh "ssh ubuntu@3.127.221.103 'echo \$USER'"
             }
         }
         stage('Delete workspace before build starts') {
