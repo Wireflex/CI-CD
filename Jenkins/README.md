@@ -115,7 +115,7 @@ sudo apt-get install fontconfig openjdk-17-jre
 
 создаём credentials для того, чтобы связать дженкинс и гитхаб
 
-публичный ключ на гитхаб (Setting - SSH and GPG keys) , приватный в дженкинс ( Username как на гитхаба) ( если credentials не активируютс - нужно самому активировать ключ - к примеру склонировать репозиторий через ssh )
+публичный ключ на гитхаб (Setting - SSH and GPG keys, а лучше не для всех репо, а только для конкретного, поэтому в репозитории CI/CD - Deploy keys ) , приватный в дженкинс ( Username как на гитхаба) ( если credentials не активируютс - нужно самому активировать ключ - к примеру склонировать репозиторий через ssh )
 
 ![image](https://github.com/user-attachments/assets/f9666327-30dd-4d09-9737-ecbd516ec144)
 
