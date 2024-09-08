@@ -59,8 +59,7 @@ services:
     ports:
       - '80:80'
     restart: unless-stopped
-                EOF
-                '''
+EOF"""
                 sh 'scp docker-compose.yml ubuntu@3.127.221.103:/home/ubuntu'
             }
         }
