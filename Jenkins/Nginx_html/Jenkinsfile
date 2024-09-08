@@ -1,12 +1,75 @@
 pipeline {
     agent any
+    environment {
+        IMAGE = "wireflex/jenkins"
 
     stages {
-        stage('My-JenkinsBuild-Steps') {
+        stage('Docker user(local and remote) and version') {
             steps {
-               echo "Start"
-               echo "Doing something.."
-               echo "End"
+                sh "echo $USER"
+                sh 'docker version'
+                sh "ssh ubuntu@3.127.221.103 'echo \$USER'"
+            }
+        }
+        stage('Delete workspace before build starts') {
+            steps {
+                echo 'Deleting workspace'
+                deleteDir()
+            }
+        }
+        stage('Checkout') {
+            steps{
+                git branch: 'main',
+                    url: 'git@github.com:Wireflex/CI-CD.git'        
+                }
+        }
+        stage('Test') {
+            steps{
+                dir('Jenkins/Nginx_html') {
+                    sh "ls -la "
+                    sh "pwd"
+                }
+            }
+        }
+        stage('Build docker image') {
+            steps{
+                dir('Jenkins/Nginx_html') {
+                    sh 'docker build -t $IMAGE .'
+                }
+            }
+        }
+        stage('Push docker image to DockerHub') {
+            steps{
+                withDockerRegistry(credentialsId: 'dockerhub', url: 'https://index.docker.io/v1/') {
+                    sh '''
+                        docker push $IMAGE
+                    '''
+                }
+            }
+        }
+        stage('Delete docker image locally') {
+            steps{
+                sh 'docker rmi $IMAGE'
+            }
+        }
+        stage('Create compose and transfer'){
+            steps{
+                    sh "cat << 'EOF' > docker-compose.yml 
+services:
+  test:
+    image: wireflex/jenkins
+    ports:
+      - '80:80'
+    restart: unless-stopped
+EOF"
+                    sh 'cd ~ && sudo cp docker-compose.yml docker-compose.yaml'
+                    sh 'cd ~ && scp docker-compose.yaml  ubuntu@3.127.221.103:/home/ubuntu'
+    }
+        stage('Deploy on remote'){
+            steps{
+                    sh "ssh ubuntu@3.127.221.103 'cd ~ && docker compose down'"
+                    sh "ssh ubuntu@3.127.221.103 'cd ~ && docker rmi wireflex/jenkins'"
+                    sh "ssh ubuntu@3.127.221.103 'cd ~ && docker compose up -d'"
             }
         }
     }
