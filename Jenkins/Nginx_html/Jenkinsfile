@@ -55,10 +55,10 @@ pipeline {
                 cat << 'EOF' > docker-compose.yml
 services:
   test:
-  image: wireflex/jenkins
-  ports:
-    - '80:80'
-  restart: unless-stopped
+    image: wireflex/jenkins
+    ports:
+      - '80:80'
+    restart: unless-stopped
                 EOF
                 '''
                 sh 'scp docker-compose.yml ubuntu@3.127.221.103:/home/ubuntu'
