@@ -174,5 +174,5 @@ http://localhost:8080/job/first_job/build?token=dota2
 
 ![image](https://github.com/user-attachments/assets/434923aa-a337-4d2c-967d-3509e34cf4f7)
 
-ну и сам [Jenkinsfile](https://github.com/Wireflex/CI-CD/blob/1587578415216c78c80e93f00e927bf5c1942536/Jenkins/Nginx_html/Jenkinsfile),
+ну и сам [Jenkinsfile](https://github.com/Wireflex/CI-CD/blob/7fe33e2417a9eaf23fae4723802bc12d4a664869/Jenkins/Nginx_html/Jenkinsfile),
 [Dockerfile](https://github.com/Wireflex/CI-CD/blob/48cb5f9360dc0011778572baaa29efaae5e087b8/Jenkins/Nginx_html/Dockerfile) и [index.html](https://github.com/Wireflex/CI-CD/blob/ce83955d5e30e6c4e450ef2254b892261ef3484e/Jenkins/Nginx_html/index.html)
