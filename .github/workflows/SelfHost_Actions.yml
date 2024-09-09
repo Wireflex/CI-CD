@@ -37,7 +37,7 @@ jobs:
                 test:
                   image: wireflex/actions
                   ports:
-                    - '80:80'
+                    - "80:80"
                   restart: unless-stopped
               EOF
               scp docker-compose-actions.yml ubuntu@3.127.221.103:/home/ubuntu
