@@ -32,7 +32,6 @@ jobs:
     steps:
           - name: Deploy at remote server
             run: |
-              echo $USER $HOST $HOSTNAME $HOME
               echo "
               services:
                 test:
@@ -40,7 +39,6 @@ jobs:
                 ports:
                   - '80:80'
                 restart: unless-stopped" > docker-compose-actions.yml
-              echo $HOST $HOSTNAME $HOME
               scp docker-compose-actions.yml ubuntu@3.127.221.103:/home/ubuntu
               ssh ubuntu@3.127.221.103  'docker compose -f docker-compose-actions.yml down'
               ssh ubuntu@3.127.221.103  'docker rmi -f wireflex/actions || true'
