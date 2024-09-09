@@ -41,7 +41,14 @@ docker run -d --name gitlab-runner --restart always \
     -v gitlab-runner-config:/etc/gitlab-runner \
     gitlab/gitlab-runner:latest
 ```
+```gitlab-runner run``` вручную запустить
 
+и в качестве сервиса(немного тупит):
+```
+sudo gitlab-runner install
+sudo gitlab-runner start
+sudo gitlab-runner status
+```
 с shell-runner вообще проблем нет, у docker-runner должны быть права на сокет докера
 
 Все джобы побегут от пользователя gitlab-runner, и если нужно выполнить судо-команды, то в visudo нужно дать ему рут-права и убрать пароль ![image](https://github.com/user-attachments/assets/effbe15a-4207-4232-9aa2-18d53a8306fa)
