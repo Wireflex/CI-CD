@@ -99,3 +99,5 @@ volumes:
 в настройках пайплайна ( +:* эт все ветки )
 
 ![image](https://github.com/user-attachments/assets/4836d65d-bdc6-4e8c-bd2b-271aa2ca4ea6)
+
+![image](https://github.com/user-attachments/assets/2b70be07-92c6-46ff-9280-c74bdb280287)
