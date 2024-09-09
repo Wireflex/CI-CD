@@ -94,3 +94,8 @@ volumes:
 
 и смотрим чтобы он подходил по критериям в Compatible Agents (у нас докер настроен, всё ок)
 
+## Triggers
+
+в настройках пайплайна ( +:* эт все ветки )
+
+![image](https://github.com/user-attachments/assets/4836d65d-bdc6-4e8c-bd2b-271aa2ca4ea6)
