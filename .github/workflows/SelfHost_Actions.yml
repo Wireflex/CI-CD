@@ -1,7 +1,7 @@
 name: SelfHost_Actions
 
 on:
-  pull_request:
+  push:
     branches: 
     - main
     
@@ -22,7 +22,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6.1.0
         with:
-          context: Nginx_html/
+          context: Jenkins/Nginx_html
           push: true
           tags: wireflex/actions
   
@@ -32,6 +32,14 @@ jobs:
     steps:
           - name: Deploy at remote server
             run: |
-              ssh root@94.142.142.172  'docker compose down'
-              ssh root@94.142.142.172  'echo "y" | docker system prune -a'
-              ssh root@94.142.142.172  'docker compose up -d'
+              echo "
+              services:
+                test:
+                image: wireflex/actions
+                ports:
+                  - '80:80'
+                restart: unless-stopped" > docker-compose-actions.yml
+              scp docker-compose-actions.yml ubuntu@3.127.221.103:/home/ubuntu
+              ssh ubuntu@3.127.221.103  'docker compose -f docker-compose-actions.yml down'
+              ssh ubuntu@3.127.221.103  'docker rmi -f wireflex/actions || true'
+              ssh ubuntu@3.127.221.103  'docker compose -f docker-compose-actions.yml up -d'
