@@ -32,13 +32,14 @@ jobs:
     steps:
         - name: Deploy at remote server
           run: |
-              echo "
+              cat << 'EOF' > docker-compose-actions.yml
               services:
                 test:
                   image: wireflex/actions
                   ports:
                     - '80:80'
-                  restart: unless-stopped" > docker-compose-actions.yml
+                  restart: unless-stopped
+              EOF
               scp docker-compose-actions.yml ubuntu@3.127.221.103:/home/ubuntu
               ssh ubuntu@3.127.221.103 'docker compose -f docker-compose-actions.yml down'
               ssh ubuntu@3.127.221.103 'docker rmi -f wireflex/actions || true'
