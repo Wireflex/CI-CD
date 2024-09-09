@@ -1,6 +1,6 @@
 ![image](https://github.com/user-attachments/assets/e3876923-e5f6-4c4a-b87c-203fc8b944e1)
 
-Включение автоматизации происходит добавлением файлов YAML в специальную директорию [.github/workflows](https://github.com/Wireflex/CI-CD/tree/83eb771a3e8e0a00445a0b474f67807fc6815588/GitHubActions/.github/workflows%20) (именно в корень репозитория, внутри директории не сработает)
+Включение автоматизации происходит добавлением файлов YAML в специальную директорию [.github/workflows](https://github.com/Wireflex/CI-CD/tree/429e044566ffceb7f3bb2e5fd28bede4c0799f02/.github/workflows) (именно в корень репозитория, внутри директории не сработает)
 
 Либо тыкнуть на ![image](https://github.com/user-attachments/assets/25470e4a-a693-4fd3-98bb-6f02c0c12c35)и выбрать готовый или создать свой ![image](https://github.com/user-attachments/assets/bb082f8b-98bf-4707-8f31-68cf7cc9ea74)
 
@@ -166,7 +166,8 @@ jobs:
 ```
 </details>
 
-Secrets тут:
+Secrets и переменные тут:
 
 ![image](https://github.com/user-attachments/assets/a65f13f2-7f9d-4a18-ad59-00241e19d3f6)
 
+## [Build,push and deploy](https://github.com/Wireflex/CI-CD/blob/7a568dd6ea3523d651ea53e517656df9e3387767/.github/workflows/SelfHost_Actions.yml)
