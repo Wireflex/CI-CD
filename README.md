@@ -44,7 +44,7 @@
 
 ## [Jenkins](https://github.com/Wireflex/CI-CD/blob/7ade2650a8f51ed0a84bf1c25ef5bee920f265f2/Jenkins)
 
-## [GitLab CI](https://github.com/Wireflex/CI-CD/blob/10abf4aa68430799b0b8704e17c2ac6359818c6a/GitLab)
+## [GitLab CI](https://github.com/Wireflex/CI-CD/blob/be2c9fb916bb5d34e67d85eea0d60bb14b6d0f9c/GitLab/README.md)
 
 ## [TeamCity](https://github.com/Wireflex/CI-CD/tree/88b1df97c2e9d2d8280e3076fe3b2ce5e8138eb1/TeamCity)
 
