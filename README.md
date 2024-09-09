@@ -51,3 +51,6 @@
 ## [GitHub Actions ](https://github.com/Wireflex/CI-CD/blob/e56c829225f8b6d5a4f36c6eb397ff50df8e7825/GitHubActions)
 
 [![Practice_actions](https://github.com/Wireflex/CI-CD/actions/workflows/main.yml/badge.svg)](https://github.com/Wireflex/CI-CD/actions/workflows/main.yml)
+
+[![SelfHost_Actions](https://github.com/Wireflex/CI-CD/actions/workflows/SelfHost_Actions.yml/badge.svg?branch=main)](https://github.com/Wireflex/CI-CD/actions/workflows/SelfHost_Actions.yml)
+
