@@ -42,6 +42,8 @@ docker run -d --name gitlab-runner --restart always \
     gitlab/gitlab-runner:latest
 ```
 
+с shell-runner вообще проблем нет, у docker-runner должны быть права на сокет докера
+
 Все джобы побегут от пользователя gitlab-runner, и если нужно выполнить судо-команды, то в visudo нужно дать ему рут-права и убрать пароль ![image](https://github.com/user-attachments/assets/effbe15a-4207-4232-9aa2-18d53a8306fa)
 
 Глобальные переменные и секреты в Проект - Setting - CI/CD - Variables
@@ -94,3 +96,5 @@ docker build -t registry.gitlab.com/wireflex/dota .
 docker push registry.gitlab.com/wireflex/dota
 ```
 ![image](https://github.com/user-attachments/assets/8bac9d2f-49b8-407c-b991-b218f79ea41e)
+
+## [Build, push and deploy](https://gitlab.com/Wireflex/dota)
