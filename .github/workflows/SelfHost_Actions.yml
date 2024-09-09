@@ -32,7 +32,7 @@ jobs:
     steps:
           - name: Deploy at remote server
             run: |
-              echo $HOST $HOSTNAME $HOME
+              echo $USER $HOST $HOSTNAME $HOME
               echo "
               services:
                 test:
