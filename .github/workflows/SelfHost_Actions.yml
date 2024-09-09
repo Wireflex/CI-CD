@@ -30,16 +30,16 @@ jobs:
     runs-on: self-hosted
     needs: [build_and_push]
     steps:
-          - name: Deploy at remote server
-            run: |
+        - name: Deploy at remote server
+          run: |
               echo "
               services:
                 test:
-                image: wireflex/actions
-                ports:
-                  - '80:80'
-                restart: unless-stopped" > docker-compose-actions.yml
+                  image: wireflex/actions
+                  ports:
+                    - '80:80'
+                  restart: unless-stopped" > docker-compose-actions.yml
               scp docker-compose-actions.yml ubuntu@3.127.221.103:/home/ubuntu
-              ssh ubuntu@3.127.221.103  'docker compose -f docker-compose-actions.yml down'
-              ssh ubuntu@3.127.221.103  'docker rmi -f wireflex/actions || true'
-              ssh ubuntu@3.127.221.103  'docker compose -f docker-compose-actions.yml up -d'
+              ssh ubuntu@3.127.221.103 'docker compose -f docker-compose-actions.yml down'
+              ssh ubuntu@3.127.221.103 'docker rmi -f wireflex/actions || true'
+              ssh ubuntu@3.127.221.103 'docker compose -f docker-compose-actions.yml up -d'
