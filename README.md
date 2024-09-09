@@ -42,11 +42,11 @@
    - После развертывания приложения происходит мониторинг его работы (например, использование ресурсов, журналы ошибок).
    - На этом этапе команда отслеживает производительность и выявляет любые возможные проблемы.
 
-## [Jenkins](https://github.com/Wireflex/CI-CD/blob/7ade2650a8f51ed0a84bf1c25ef5bee920f265f2/Jenkins/README.md)
+## [Jenkins](https://github.com/Wireflex/CI-CD/blob/7ade2650a8f51ed0a84bf1c25ef5bee920f265f2/Jenkins)
 
 ## [GitLab CI](https://github.com/Wireflex/CI-CD/blob/10abf4aa68430799b0b8704e17c2ac6359818c6a/GitLab)
 
-## [TeamCity](https://github.com/Wireflex/CI-CD/tree/3469a629e1b08a9f3952418724388a901a49a2fb/TeamCity)
+## [TeamCity](https://github.com/Wireflex/CI-CD/tree/88b1df97c2e9d2d8280e3076fe3b2ce5e8138eb1/TeamCity)
 
 ## [GitHub Actions ](https://github.com/Wireflex/CI-CD/blob/e56c829225f8b6d5a4f36c6eb397ff50df8e7825/GitHubActions)
 
